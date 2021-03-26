@@ -5,8 +5,7 @@
 
 * {
     text-decoration:none;
-    margin:0;
-    padding:0;
+    
     
 }
 
@@ -28,24 +27,33 @@ nav  {
 color:var(--primary);
 text-decoration: underline;
 }
-main {
+
+#container {
     display:inline-flex;
     justify-content:center;
     align-items:center;
     flex-wrap:wrap;
     margin: 5% 20% 5% 20%;
+    text-align:center;
 }
 
-p {
-    padding:20px;
-      text-align:center;
-}
 
-#start {
+
+button {
     background-color:var(--primary);
     color:white;
     border-radius:30px;
     border:none;
     padding:10px;
+
+}
+
+#quiz{
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    margin: 5% 20% 5% 20%;
+    text-align:center;
 
 }

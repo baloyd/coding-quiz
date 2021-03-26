@@ -9,20 +9,30 @@
   <link rel="stylesheet" href="./Assets/CSS/style.css">
 </head>
 <body>
-    <header >
+    
 <nav>
     <a id="highscore" href="#">View Highscore</a>
     <h2 id="timer">Time:</h2>
 </nav>
-    </header>
+   
 
 
-    <main>
+   
+        <div id="container">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-
         <button id="start">Start Quiz!</button>
-    </main>
+        
+    </div>
+        
+    <div id="quiz">
+        <h1 id="questions">Questions Placeholder</h1>
+        <button id="a" onclick="checkAnswer('a')">a</button>
+        <button id="b" onclick="checkAnswer('b')">B</button>
+        <button id="c" onclick="checkAnswer('c')">C</button>
+        <button id="d" onclick="checkAnswer('d')">D</button>
+        <div id="answer"></div>
+    </div>
 
     <script src="./Assets/script.js"></script>
 </body>
