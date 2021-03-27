@@ -99,6 +99,7 @@ function countdown() {
     if(timeLeft===0 || questionBank ===finalQuestionBank){
       clearInterval(timeInterval);
       alert("Game Over!");
+      
     }
     timerEl.textContent ="Time: "+timeLeft;
     
@@ -117,8 +118,8 @@ startEl.addEventListener("click", function(){
     //timer starts when button is pressed
     countdown();
   })
-
-  function stopAnswer (){ document.getElementById("msg").style.display="none;"}
+//stops message from being displayed 
+  function stopAnswer (){ document.getElementById("msg").style.display="none"}
 
   // This function checks the response to each answer 
 function checkAnswer(answer){
@@ -127,24 +128,20 @@ function checkAnswer(answer){
   if (answer === correct && questionBank !== finalQuestionBank){
       score++;
       document.getElementById("msg").style.display= "flex";
-      displayMessage("success","That Is Correct!");
-      setTimeout (stopAnswer,2000);
+      displayMessage("success","Correct!");
+      setTimeout (stopAnswer,1000);
       questionBank++;
       generateQuestion();
       
   }else if (answer !== correct && questionBank !== finalQuestionBank){
       document.getElementById("msg").style.display= "flex";
-      displayMessage("error","That Is Incorrect.");
-      setTimeout (stopAnswer,2000);
+      displayMessage("error","Wrong!");
+      setTimeout (stopAnswer,1000);
       questionBank++;
       timeLeft -=10;
       generateQuestion();
       
+      
+  } 
   }
-}
 
- 
-
-
-
-  

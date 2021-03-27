@@ -25,7 +25,7 @@ nav  {
 
 #highscore {
 color:var(--primary);
-text-decoration: underline;
+
 }
 
 #container {
@@ -66,4 +66,8 @@ button {
     margin-top: 10px;
     margin-left: 25%;
     margin-right: 25%;
+}
+
+#gameOver {
+    display:none;
 }
