@@ -1,6 +1,7 @@
 //placing ids in variables to be called upon
 var startEl = document.getElementById("start");
 var timerEl = document.getElementById("timer");
+var msgDiv = document.querySelector("#msg");
 var questionEl = document.getElementById("questions");
 var aButton = document.getElementById("a")
 var bButton = document.getElementById("b")
@@ -8,7 +9,7 @@ var cButton = document.getElementById("c")
 var dButton = document.getElementById("d")
 
 
-//question and answer bank
+//question and answer object
 var questions = [{
 question: "Which is a data type not used in Javascript?",
 choiceA:"Array",
@@ -68,8 +69,8 @@ var finalQuestionBank = questions.length;
 var correct;
 var score = 0
 var timeLeft = 75;
-//This function will cycle through the question object to produce the questions and answers 
 
+//This function will cycle through the question object to produce the questions and answers 
 function generateQuestion(){
 
   var currentQuestion = questions[questionBank];
@@ -79,6 +80,12 @@ function generateQuestion(){
   cButton.innerHTML = "<button>"+currentQuestion.choiceC+"</button"
   dButton.innerHTML = "<button>"+currentQuestion.choiceD+"</button"
 };
+
+//displays message when user answers
+function displayMessage(type, message) {
+  msgDiv.textContent = message;
+  msgDiv.setAttribute("class", type);
+}
 
 
 
@@ -107,11 +114,10 @@ startEl.addEventListener("click", function(){
     document.querySelector("#quiz").style.display = "inline-block";
     generateQuestion();
     
-
-
     //timer starts when button is pressed
     countdown();
   })
+
 
   // This function checks the response to each answer 
 function checkAnswer(answer){
@@ -119,17 +125,24 @@ function checkAnswer(answer){
 
   if (answer === correct && questionBank !== finalQuestionBank){
       score++;
-      alert("That Is Correct!");
+      document.getElementById("msg").style.display= "flex";
+      displayMessage("success","That Is Correct!");
       questionBank++;
       generateQuestion();
       
   }else if (answer !== correct && questionBank !== finalQuestionBank){
-      alert("That Is Incorrect.")
+    document.getElementById("msg").style.display= "flex";
+    displayMessage("error","That Is Incorrect.");
+    
       questionBank++;
+      timeLeft -=10;
       generateQuestion();
       
   }
 }
 
-  
+ 
+
+
+
   
