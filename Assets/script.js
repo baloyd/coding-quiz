@@ -128,14 +128,14 @@ function checkAnswer(answer){
       score++;
       document.getElementById("msg").style.display= "flex";
       displayMessage("success","That Is Correct!");
-      msgDiv.setTimeout (stopAnswer,2000);
+      setTimeout (stopAnswer,2000);
       questionBank++;
       generateQuestion();
       
   }else if (answer !== correct && questionBank !== finalQuestionBank){
-    document.getElementById("msg").style.display= "flex";
-    displayMessage("error","That Is Incorrect.");
-    
+      document.getElementById("msg").style.display= "flex";
+      displayMessage("error","That Is Incorrect.");
+      setTimeout (stopAnswer,2000);
       questionBank++;
       timeLeft -=10;
       generateQuestion();
