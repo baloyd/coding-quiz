@@ -118,6 +118,7 @@ startEl.addEventListener("click", function(){
     countdown();
   })
 
+  function stopAnswer (){ document.getElementById("msg").style.display="none;"}
 
   // This function checks the response to each answer 
 function checkAnswer(answer){
@@ -127,6 +128,7 @@ function checkAnswer(answer){
       score++;
       document.getElementById("msg").style.display= "flex";
       displayMessage("success","That Is Correct!");
+      msgDiv.setTimeout (stopAnswer,2000);
       questionBank++;
       generateQuestion();
       
