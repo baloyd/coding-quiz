@@ -48,7 +48,7 @@ button {
 
 }
 
-#quiz{
+#quiz,#gameOver{
     display:none;
     justify-content:center;
     align-items:center;
@@ -68,6 +68,3 @@ button {
     margin-right: 25%;
 }
 
-#gameOver {
-    display:none;
-}

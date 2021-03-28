@@ -7,7 +7,8 @@ var aButton = document.getElementById("a")
 var bButton = document.getElementById("b")
 var cButton = document.getElementById("c")
 var dButton = document.getElementById("d")
-
+var finalScore = document.getElementById("finalScore")
+var inputInitials = document.getElementById("inputInitials")
 
 //question and answer object
 var questions = [{
@@ -72,22 +73,20 @@ var timeLeft = 75;
 
 //This function will cycle through the question object to produce the questions and answers 
 function generateQuestion(){
-
+if (questionBank < finalQuestionBank){
   var currentQuestion = questions[questionBank];
   questionEl.innerHTML = "<h1>"+currentQuestion.question+"</h1>"
   aButton.innerHTML = "<button>"+currentQuestion.choiceA+"</button"
   bButton.innerHTML = "<button>"+currentQuestion.choiceB+"</button"
   cButton.innerHTML = "<button>"+currentQuestion.choiceC+"</button"
   dButton.innerHTML = "<button>"+currentQuestion.choiceD+"</button"
-};
+}};
 
 //displays message when user answers
 function displayMessage(type, message) {
   msgDiv.textContent = message;
   msgDiv.setAttribute("class", type);
 }
-
-
 
 
 //setInterval function to create the counter 
@@ -98,7 +97,8 @@ function countdown() {
     timeLeft--;
     if(timeLeft===0 || questionBank ===finalQuestionBank){
       clearInterval(timeInterval);
-      alert("Game Over!");
+      gameOver ();
+      
       
     }
     timerEl.textContent ="Time: "+timeLeft;
@@ -144,4 +144,9 @@ function checkAnswer(answer){
       
   } 
   }
-
+  function gameOver(){
+  document.querySelector("#quiz").style.display = "none";
+  document.querySelector("#gameOver").style.display = "block";
+  finalScore.textContent = "Your final score is "+score;
+  
+  }
