@@ -9,6 +9,9 @@ var cButton = document.getElementById("c")
 var dButton = document.getElementById("d")
 var finalScore = document.getElementById("finalScore")
 var inputInitials = document.getElementById("inputInitials")
+var subButton = document.getElementById("submit");
+var userInitials = document.getElementById("userInitials");
+var userScore = document.getElementById("userScore");
 
 //question and answer object
 var questions = [{
@@ -66,6 +69,8 @@ correctAnswer: 'd'},
 ]
 //global variables
 var questionBank = 0
+userInitials = inputInitials
+userScore = score
 var finalQuestionBank = questions.length;
 var correct;
 var score = 0
@@ -148,5 +153,16 @@ function checkAnswer(answer){
   document.querySelector("#quiz").style.display = "none";
   document.querySelector("#gameOver").style.display = "block";
   finalScore.textContent = "Your final score is "+score;
+
+  subButton.addEventListener("click", function() {
+    if (inputInitials === "") {
+      displayMessage("error", "initials cannot be blank");
+  }else {
+    displayMessage("success", "Highscore inputted successfully");
+    localStorage.setItem("userInitials", inputInitials);
+    localStorage.setItem("userScore", score);
   
-  }
+  }});
+}
+
+  

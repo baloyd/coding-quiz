@@ -1,6 +1,7 @@
 :root {
     --primary:rgb(65, 11, 65);
     --secondary:white;
+    --tertiary:rgb(180, 177, 177);
 }
 
 * {
@@ -23,7 +24,7 @@ nav  {
     font-weight:lighter;
 }
 
-#highscore {
+#scoreStorage{
 color:var(--primary);
 
 }
@@ -41,7 +42,7 @@ color:var(--primary);
 
 button {
     background-color:var(--primary);
-    color:white;
+    color:var(--secondary);
     border-radius:30px;
     border:none;
     padding:10px;
@@ -60,11 +61,9 @@ button {
 
 #msg {
     display:none;
-    color: rgb(180, 177, 177);
-    border-top: rgb(180, 177, 177) 2px solid;
+    color: var(--tertiary);
+    border-top: var(--tertiary) 2px solid;
     padding-top: 10px;
-    margin-top: 10px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin: 10px 25% 0;
 }
 

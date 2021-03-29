@@ -11,7 +11,7 @@
 <body>
     
 <nav>
-    <a id="highscore" href="#">View Highscore</a>
+    <a id="scoreStorage" href="#scorePage">View Highscore</a>
     <h2 id="timer">Time:</h2>
 </nav>
    
@@ -35,7 +35,15 @@
     <h1>All done!</h1>
     <div id="finalScore"></div>
     <h1>Enter your initials below.</h1>
-       <input type="text" size="3" maxlength="3" id="inputInitial"/>
+    <form>
+       <input type="text" size="3" maxlength="3" id="inputInitials"/>
+       <button id="submit">Submit</button>
+    </form>
+</div>
+
+<div id="scorePage">
+ <div id="userInitials"></div>
+ <div id="userScore"></div>
 </div>
 
 
