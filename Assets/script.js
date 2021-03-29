@@ -155,10 +155,13 @@ function checkAnswer(answer){
   finalScore.textContent = "Your final score is "+score;
 
   subButton.addEventListener("click", function() {
-    if (inputInitials === "") {
+    
+    if (inputInitials.value === "") {
       displayMessage("error", "initials cannot be blank");
+      
   }else {
     displayMessage("success", "Highscore inputted successfully");
+    
     localStorage.setItem("userInitials", inputInitials);
     localStorage.setItem("userScore", score);
   
