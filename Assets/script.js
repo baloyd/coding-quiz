@@ -69,8 +69,6 @@ correctAnswer: 'd'},
 ]
 //global variables
 var questionBank = 0
-userInitials = inputInitials
-userScore = score
 var finalQuestionBank = questions.length;
 var correct;
 var score = 0
@@ -89,6 +87,7 @@ if (questionBank < finalQuestionBank){
 
 //displays message when user answers
 function displayMessage(type, message) {
+  document.getElementById("msg").style.display = "block";
   msgDiv.textContent = message;
   msgDiv.setAttribute("class", type);
 }
@@ -117,6 +116,7 @@ startEl.addEventListener("click", function(){
   
   //after button is pressed,changes main part of the page to the first question
     document.querySelector("#container").style.display = "none";
+    document.querySelector("#scorePage").style.display = "none";
     document.querySelector("#quiz").style.display = "inline-block";
     generateQuestion();
     
@@ -132,14 +132,12 @@ function checkAnswer(answer){
 
   if (answer === correct && questionBank !== finalQuestionBank){
       score++;
-      document.getElementById("msg").style.display= "flex";
       displayMessage("success","Correct!");
       setTimeout (stopAnswer,1000);
       questionBank++;
       generateQuestion();
       
   }else if (answer !== correct && questionBank !== finalQuestionBank){
-      document.getElementById("msg").style.display= "flex";
       displayMessage("error","Wrong!");
       setTimeout (stopAnswer,1000);
       questionBank++;
@@ -149,6 +147,30 @@ function checkAnswer(answer){
       
   } 
   }
+//this function shows the highscore page retrieved from local storage.
+function showHighscore(){
+  document.querySelector("#gameOver").style.display = "none";
+  document.querySelector("#scorePage").style.display = "inline-flex";
+
+  localStorage.getItem("userInitials");
+  localStorage.getItem("userScore");
+  userInitials.textContent = inputInitials.value
+  userScore.textContent = score
+}
+
+//this allows the user to see the high score page when the view highscore link is clicked.
+document.querySelector("#scoreStorage").addEventListener("click", function () {
+  document.querySelector("#container").style.display = "none";
+  showHighscore();
+})
+
+document.querySelector("#goBack").addEventListener("click",function(){
+  document.querySelector("#container").style.display = "inline-block";
+  document.querySelector("#scorePage").style.display = "none";
+})
+
+
+  //this function blocks the quiz screen and displays the gameover screen, displays the users final score and allows for input.
   function gameOver(){
   document.querySelector("#quiz").style.display = "none";
   document.querySelector("#gameOver").style.display = "block";
@@ -164,7 +186,7 @@ function checkAnswer(answer){
     
     localStorage.setItem("userInitials", inputInitials);
     localStorage.setItem("userScore", score);
-  
+     showHighscore();
   }});
 }
 

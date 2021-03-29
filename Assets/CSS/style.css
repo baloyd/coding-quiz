@@ -67,3 +67,18 @@ button {
     margin: 10px 25% 0;
 }
 
+#scorePage{
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    text-align:center;
+    
+}
+
+#scoreBox {
+    padding: 100px;
+    border: var(--primary) 2px solid;
+    margin: 5% 20% 5% 20%;
+    flex-wrap:wrap;
+}
