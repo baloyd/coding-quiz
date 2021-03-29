@@ -46,7 +46,13 @@ button {
     border-radius:30px;
     border:none;
     padding:10px;
+    opacity: 100%;
+    transition: opacity 1s;
 
+}
+
+button:hover {
+ opacity: 70%;
 }
 
 #quiz,#gameOver{

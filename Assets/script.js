@@ -154,6 +154,7 @@ function showHighscore(){
 
   localStorage.getItem("userInitials");
   localStorage.getItem("userScore");
+
   userInitials.textContent = inputInitials.value
   userScore.textContent = score
 }
@@ -164,9 +165,18 @@ document.querySelector("#scoreStorage").addEventListener("click", function () {
   showHighscore();
 })
 
+//after main menu button is clicked, the main container is displayed and the score page is removed.
 document.querySelector("#goBack").addEventListener("click",function(){
-  document.querySelector("#container").style.display = "inline-block";
+  document.querySelector("#container").style.display = "inline-flex";
   document.querySelector("#scorePage").style.display = "none";
+  
+})
+
+//clicking the button will remove the score from local storage and set the question counter back to 0.
+document.querySelector("#clear").addEventListener("click", function (){
+  questionBank = 0;
+  userInitials = " ";
+  userScore = " ";
 })
 
 
@@ -179,10 +189,10 @@ document.querySelector("#goBack").addEventListener("click",function(){
   subButton.addEventListener("click", function() {
     
     if (inputInitials.value === "") {
-      displayMessage("error", "initials cannot be blank");
+      alert("Initials cannot be blank.");
       
   }else {
-    displayMessage("success", "Highscore inputted successfully");
+    alert("Highscore inputted successfully.");
     
     localStorage.setItem("userInitials", inputInitials);
     localStorage.setItem("userScore", score);
