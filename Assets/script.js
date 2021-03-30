@@ -175,8 +175,12 @@ document.querySelector("#goBack").addEventListener("click",function(){
 //clicking the button will remove the score from local storage and set the question counter back to 0.
 document.querySelector("#clear").addEventListener("click", function (){
   questionBank = 0;
-  userInitials = " ";
-  userScore = " ";
+  timeLeft = 75;
+  score = 0
+  
+  userInitials.textContent= " ";
+  userScore.textContent= " ";
+  
 })
 
 

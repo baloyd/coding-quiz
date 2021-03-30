@@ -55,6 +55,10 @@ button:hover {
  opacity: 70%;
 }
 
+button:focus {
+    outline:none !important;
+}
+
 #quiz,#gameOver{
     display:none;
     justify-content:center;
@@ -88,3 +92,4 @@ button:hover {
     margin: 5% 20% 5% 20%;
     flex-wrap:wrap;
 }
+
